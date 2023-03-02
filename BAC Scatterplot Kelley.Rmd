@@ -1,0 +1,31 @@
+---
+title: "Scatterplot"
+author: Kelley Lewis
+output: html_notebook
+---
+
+
+
+```{r include = FALSE}
+library(here)
+
+beer <- read.csv(here("Data", "Beer Data.csv"))
+
+```
+
+```{r}
+plot(beer$beers, beer$bac,
+     xlab = "# Of Beers Consumed",
+     ylab = "BAC",
+     main = "# of Beers Consumed and Blood Alcohol Content",
+     col = "red4",
+     pch = 16)
+
+```
+Figure 1. # of Beers Consumed and Blood Alcohol Content
+
+
+
+
+
+
