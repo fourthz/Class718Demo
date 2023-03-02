@@ -1,0 +1,42 @@
+---
+title: "Beer Regression"
+output: html_notebook
+---
+
+``` {r set up, include=FALSE}
+
+rm(list = ls())
+
+library(here)
+
+beer <- read.csv(here("Data","Beer Data.csv"))
+
+```
+
+``` {r model, echo = FALSE}
+
+model <- lm(beer$bac ~ beer$beers)
+summary <- summary(model)
+confint <- confint(model)
+
+```
+
+Here is the model predicting blood alcohol content (BAC) level from number of beers consumed:
+
+<center>
+
+BAC = `r round(summary$coefficients[1],2)` + `r round(summary$coefficients[2],2)`(beers)
+
+</center>
+
+This model has strong predictive ability (*p*<.001) and accounts for `r round(summary$r.squared,2)*100`% of the variation in BAC level.
+
+Using this sample as a representative sample of all beer drinkers, here is the 95% confidence interval for the slope coefficient
+
+<center>
+
+`r round(confint[2,1],2)` < $\beta$~beers~ < `r round(confint[2,2],2)`
+
+</center>
+
+We are 95% confident that each additional beer consumed increases the BAC level by `r round(confint[2,1],2)` to `r round(confint[2,2],2)` points.
