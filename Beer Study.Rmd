@@ -1,0 +1,6 @@
+---
+title: "Beer and Blood Alcohol Content"
+output: html_notebook
+---
+
+A study was conducted at Ohio State University to determine the relationship of the number of beers consumed to blood alcohol level. Student volunteers were randomly assigned to drink a number of beers. Thirty minutes after consuming the final beer, a police officer measured the blood alcohol content.
